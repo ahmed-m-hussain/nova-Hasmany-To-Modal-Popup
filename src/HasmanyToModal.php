@@ -129,6 +129,7 @@ class HasmanyToModal extends Field //implements ListableField
         $this->value = [
             "resourceId" => $resource->id,
             "totalRelationship" => $resource->$attribute()->count(),
+            'title' => $this->singularLabel ?? Str::singular($this->name),
         ];
     }
 }

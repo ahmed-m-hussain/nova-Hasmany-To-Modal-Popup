@@ -1,12 +1,11 @@
 <template>
     <span>
-    <button @click="showModal = true">{{field.value.totalRelationship}} Comments</button>
+    <button @click="showModal = true">{{field.value.totalRelationship}} {{field.value.title}}</button>
     <modal v-if="showModal" @modal-close="handleClose">
   <form
-          @submit.prevent="handleConfirm"
           slot-scope="props"
-          class="bg-white rounded-lg shadow-lg overflow-hidden"
-          style="width: 920px"
+          class="bg-white rounded-lg shadow-lg overflow-hidden col-lg-12"
+          style="width: 90%"
   >
             <slot :uppercaseMode="uppercaseMode" :mode="mode">
                 <div class="p-8">
@@ -53,25 +52,12 @@
         },
         props: ['resourceName', 'resourceId', 'resource', 'field'],
 
-        /*props: {
-            mode: {
-                type: String,
-                default: 'delete',
-                validator: function (value) {
-                    return ['force delete', 'delete', 'detach'].indexOf(value) !== -1
-                },
-            },
-        },*/
-
         methods: {
             handleClose() {
                 this.showModal = false;
             },
             actionExecuted() {
                 this.$emit('actionExecuted')
-            },
-            handleConfirm() {
-                this.$emit('confirm')
             },
         },
 
