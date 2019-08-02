@@ -16,7 +16,13 @@ class HasmanyToModal extends Field //implements ListableField
      * @var string
      */
     public $component = 'hasmany-to-modal';
-
+    /**
+     * Indicates if the element should be shown on the edit pages.
+     *
+     * @var bool
+     */
+    public $showOnCreation = false;
+    public $showOnUpdate = false;
     /**
      * The class name of the related resource.
      *
